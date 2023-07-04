@@ -30,10 +30,8 @@ def get_pdf_text(document_path, start_page=1, final_page=999):
     number_of_pages = len(reader.pages)
     print(f'number of pages: {number_of_pages}')
     pages = ''
-    pattern = 'Show Notes:  http://www.superdatascience.com/\d+\s*\d+'
     for page_num in range(start_page - 1, min(number_of_pages, final_page)):
         page = reader.pages[page_num].extract_text()
-        page = re.sub(pattern, ' ', page).strip()
         pages += page
     return pages
 ```
